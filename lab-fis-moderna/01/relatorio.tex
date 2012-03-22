@@ -14,9 +14,6 @@
 % tamanhos de fontes: 10pt, 11pt ou 12pt
 % opções de estilo (padrões): article, report, book, slide, letter (artigo, relatorio, livro, apresentação de slides, carta)
 
-
-
-
 %% Pacotes extras (opcionais):
 
 % *babel* contem as regras de ifenização
@@ -37,47 +34,45 @@
 %%% fim do cabecalho %%%
 
 \pagestyle{empty}
-\title{Métodos Computacionais da Física A}
+\title{Radiação de corpo negro}
 \author{Aluno: Átila Leites Romero \\ Matrícula: 144679 \\ IF-UFRGS}
 
 \begin{document}
 \maketitle
 \begin{abstract}
-Verificação experimental da lei de Murphy para torradas amanteigadas.
+Verificação experimental da relação entre a temperatura de um corpo e a radiação por ele emitida.
 \end{abstract}
 
 \section{Introdução} 
 %Pequeno histórico do problema. 
 %Explicar porque o trabalho é relevante.
-Uma das leis de Murphy diz que se algo pode dar errado, dará errado.
-Aplicada ao cotidiano matinal, esta lei foi adaptada e, hoje,
-é de conhecimento popular  que as torradas sempre caem com a parte
-amanteigada virada para baixo.
 
-Neste trabalho será verificada a veracidade desta hipótese.
 
 \section{Método}
 % Aqui o Método 
 %Detalhes sobre o método utilizado \cite{Kauffman_book},
 %procure ao final do texto a referencia a esta bibliografia.
 %demonstrações de porque ele funciona.  Limites analíticos, etc.
-Para montagem da experiência, foram utilizados:
-\begin{enumerate}
-  \item{ Pacote de pão de forma }
-  \item{Torradeira}
-  \item{Tablete de manteiga}
-  \item{Faca}
-  \item{Cobaia}
-\end{enumerate}
+Uma lâmpada incandescente foi conectada a uma fonte regulável e instalada em frente a um sensor luminoso, conectado a um amplificador. Conforme a tensão aplicada à lâmpada era ajustada, mediu-se a corrente na lâmpada e a tensão resultante no sensor luminoso.
 
-Inicialmente, os pães foram inseridos em duplas na torradeira. Em 
-seguida, as torradas resultates foram embaralhadas e metade delas foi separada para
-servir de grupo controle.
+Admitindo que a radiação percebida pelo sensor seja proporcional à tensão de saída e que a temperatura do filamento seja proporcional à potência elétrica, a ... prevê que a tensão de saída do sensor deve ser proporcional à potência elétrica aplicada à lampada elevada a 4.
 
-Cada torrada do grupo de teste teve um lado preenchido com manteiga.
+A primeira série de medidas, exibida na listagem a seguir,
 
-Como uma parte importante da hipótese atesta que algo deve poder dar errado, é 
-fundamental a utilização da cobaia, 
+\begin{table}[h]
+\begin{tabular}{||l|l|l||} \hline
+v(V)& i(A) & R(mV) & P(W)\\
+\hline
+ 0 & 1 & 3\\
+ 1 & 2 & 4\\
+ 2 & 3 & 5\\
+ \hline
+ \end{tabular}
+ \caption{A tabela mostra os valores de tempo, posiçao e velocidade do
+{\ldots} }
+\end{table}
+
+
 
 Exemplo de fórmula matemática:
 \mbox{}
@@ -141,18 +136,6 @@ Incluindo uma figura em formato {\it eps}
 
 
 Incluindo uma tabela:
-\begin{table}[h]
-\begin{tabular}{||l|c|r||} \hline
-tempo& posição & velocidade\\
-\hline
- 0 & 1 & 3\\
- 1 & 2 & 4\\
- 2 & 3 & 5\\
- \hline
- \end{tabular}
- \caption{A tabela mostra os valores de tempo, posiçao e velocidade do
-{\ldots} }
-\end{table}
 
 \section{Conclusões}
 Recolocar resumidamente o problema, os resultados, as comparações \cite{Wolfram_book} com outros
