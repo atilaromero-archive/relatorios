@@ -40,7 +40,7 @@ onde $\epsilon$ é um número menor que $1$ e representa a emissividade do corpo
 Em outra experiência, foi verificado que as expressões
 $$R=R_0+R_1(T-T_0)+R_2(T-T_0)^2$$ 
 e 
-$$T=T_0(\frac{r}{r_0})^\frac{1}{\gamma}$$
+$$R=R_0(\frac{T}{T_0})^\gamma$$
 fornecem uma boa aproximação para a
 relação entre resistência e temperatura do filamento de tungstênio.
 
@@ -65,7 +65,15 @@ $$(T-T_0)\simeq \frac{P}{D}$$
 o que leva a 
 $$R=R_0+R_1\frac{P}{D}+R_2(\frac{P}{D})^2$$
 
-Para altas temperaturas, a potência irradiada passa a ser relevante, 
+Para altas temperaturas, a potência irradiada passa a prevalecer, 
+já que cresce muito mais rápido que a potência dissipada por difusão térmica.
+Neste caso,  
+$$P\simeq S(T-T_0)$$ 
+e, como 
+$$T>>T_0$$, 
+$$T^4\simeq \frac{P}{S}$$
+o que leva a 
+$$R=R_0\frac{1}{T_0^\gamma}(\frac{P}{S})^\frac{\gamma}{4}$$
 
 \section{Procedimento experimental}
 Uma lâmpada de tungstênio com 20W de potência nominal foi ligada a uma fonte regulável. 
@@ -73,19 +81,96 @@ Um fotosensor foi instalado em frente à lâmpada e ligado a um amplificador de 
 
 Foram aplicados diferentes tensões à lâmpada.
 Em cada etapa, eram medidas a corrente na lâmpada e a tensão de saída no fotosensor, já amplificada.
-Assumiu-se que a luminância detectada seria proprocional à esta tensão de saída, mesmo sendo desconhecida 
-a relação exata desta proporção.
-
-A resistência da lâmpada pôde ser calculada para cada conjunto de dados através da lei de Ohm: 
-$$ r=V/I$$ 
-onde $r$ é a resistência, $V$ a voltagem e $I$ a corrente aplicada à lâmpada. 
-A potência dissipada pela lâmpada foi calculada através de $ r=VI $.
-
-
+Assumiu-se que a luminância detectada seria proprocional à esta tensão de saída, mesmo sendo desconhecido o valor exato desta proporção.
 
 \section{Análise dos dados}
+Para cada medida, 
+a resistência da lâmpada pode ser calculada 
+através da lei de Ohm: 
+$$ r=V/I$$ 
+onde $r$ é a resistência, $V$ a voltagem e $I$ a corrente aplicada à lâmpada. 
+A potência total dissipada pela lâmpada é calculada através da 
+lei de Joule $ P=VI $.
+
+Para voltagens baixas,
+como não há emissão luminosa detectável, 
+a potência dissipada é constituída predominantemente
+pela difusão térmica,
+ e é esperado um comportamento linear entre a 
+resistência elétrica do tungstênio e a potência dissipada, descrito por
+$$R=R_0+R_1\frac{P}{D}+R_2(\frac{P}{D})^2$$
+
+Os valores para $R_0$, $R_1$ e $R_2$
+podem ser calculados
+utilizando regressão linear.
+
+Para voltagens mais elevadas, 
+a potência irradiada deve prevalecer, e
+é esperado um crescimento exponencial da 
+potência dissipada em relação à resistência, descrito por
+$$R=R_0\frac{1}{T_0^\gamma}(\frac{P}{S})^\frac{\gamma}{4}$$
+
+O valor para $\gamma$ pode ser calculado utilizando regressão exponencial. 
 
 \section{Resultados}
+
+\begin{table}[h]
+\begin{tabular}{|r|r|r|r|r|} 
+\hline
+V(V)    &       I(A)    &       L       &       R(Ohm)  &       P(W)    \\
+\hline
+0,11    &       0,12    &       5,7     &       0,92    &       0,01    \\
+0,21    &       0,22    &       5,8     &       0,95    &       0,05    \\
+0,30    &       0,27    &       5,9     &       1,11    &       0,08    \\
+0,41    &       0,33    &       5,6     &       1,24    &       0,14    \\
+0,50    &       0,35    &       6,0     &       1,43    &       0,18    \\
+0,61    &       0,38    &       5,5     &       1,61    &       0,23    \\
+0,70    &       0,40    &       6,0     &       1,75    &       0,28    \\
+0,80    &       0,42    &       6,1     &       1,90    &       0,34    \\
+0,90    &       0,44    &       5,1     &       2,05    &       0,40    \\
+1,00    &       0,46    &       6,0     &       2,17    &       0,46    \\
+1,10    &       0,48    &       6,0     &       2,29    &       0,53    \\
+1,20    &       0,50    &       6,6     &       2,40    &       0,60    \\
+1,29    &       0,52    &       6,9     &       2,48    &       0,67    \\
+1,41    &       0,54    &       7,6     &       2,61    &       0,76    \\
+1,50    &       0,55    &       8,7     &       2,73    &       0,83    \\
+1,60    &       0,57    &       9,9     &       2,81    &       0,91    \\
+1,68    &       0,59    &       11,4    &       2,85    &       0,99    \\
+1,79    &       0,60    &       13,5    &       2,98    &       1,07    \\
+1,88    &       0,62    &       15,7    &       3,03    &       1,17    \\
+2,01    &       0,64    &       19,4    &       3,14    &       1,29    \\
+2,53    &       0,72    &       44,7    &       3,51    &       1,82    \\
+2,99    &       0,79    &       84,8    &       3,78    &       2,36    \\
+3,46    &       0,85    &       146,2   &       4,07    &       2,94    \\
+4,01    &       0,92    &       246,5   &       4,36    &       3,69    \\
+4,55    &       0,98    &       370,8   &       4,64    &       4,46    \\
+5,00    &       1,04    &       504     &       4,81    &       5,20    \\
+5,53    &       1,09    &       689     &       5,07    &       6,03    \\
+6,05    &       1,15    &       895     &       5,26    &       6,96    \\
+7,02    &       1,25    &       1373    &       5,62    &       8,78    \\
+8,01    &       1,34    &       1956    &       5,98    &       10,73   \\
+9,00    &       1,43    &       2613    &       6,29    &       12,87   \\
+10,05   &       1,52    &       3428    &       6,61    &       15,28   \\
+11,02   &       1,60    &       4230    &       6,89    &       17,63   \\
+12,08   &       1,69    &       5200    &       7,15    &       20,42   \\
+13,04   &       1,76    &       6120    &       7,41    &       22,95   \\
+ \hline
+ \end{tabular}
+ \caption{Titulo }
+ \label{tabdados1}
+\end{table}
+
+No primeiro conjunto de dados, listado na tabela \ref{tabdados1}, 
+não houve detecção de radiação luminosa até a voltagem de 1,1 volts.
+Ou seja, até 1,1 volts, prevaleceu a difusão térmica.
+Os valores calculados por regressão linear foram:
+$$R_0=; R_1=; R_2=$$
+
+Na faixa de voltagens acima de 2 volts, foi notado um grande aumento da
+potência dissipada, correspondente à dissipação por irradiação.
+
+Utilizando regressão exponencial, foi calculado o valor para $\gamma$:
+$$\gamma=$$
 
 \section{Discussão}
 
