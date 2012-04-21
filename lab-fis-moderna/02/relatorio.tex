@@ -33,10 +33,29 @@ Mas a emissividade de corpos reais é menor que a emissividade de um corpo negro
 Por isso, para corpos reais, a equação é reescrita como $$ R_{(T)}=\epsilon(T)\sigmaT^4$$, onde $$\epsilon$$
 é um número menor que $$1$$ e representa a emissividade do corpo.
 
-A temperatura do filamento de tungstênio pode ser calculada através da 
+Em outra experiência, foi verificado que as expressões
+$$R=R_0+R_1(T-T_0)+R_2(T-T_0)^2$$ e 
+$$T=T_0(\frac{r}{r_0)^\frac{1}{\gamma}$$, 
+fornecem uma boa aproximação para a
+relação entre resistência e temperatura do filamento de tungstênio.
+
+A potência total dissipada por efeito Joule pode ser descrita por $$P=VI$$. 
+Assumindo que a energia dissipada por condução e convecção varie lineramente 
+com a temperatura, pode-se afirmar que $$P_D=D(T-T_0)$$.
+
+Já a potência dissipada por radiação pode ser descrita pela lei de Stefan-Boltzmann, 
+logo $$P=D(T-T_0)+S(T-T_0)$$, onde $$S=\sigma A 4\pi\epsilon$$.
+
+Como $$\sigma$$ é muito pequeno, 
+para baixas temperaturas a dissipação por condução e convecção prevalece e,
+por isso, $$P\simeq D(T-T_0)$$ e $$(T-T_0)\simeq \frac{P}{D}$$,
+o que leva a $$R=R_0+R_1\frac{P}{D}+R_2(\frac{P}{D})^2$$.
+
+Para altas temperaturas, a potência irradiada passa a ser relevante, 
 
 \section{Procedimento experimental}
-Uma lâmpada de tungstênio com 20W de potência nominal foi ligada a uma fonte regulável. Um fotosensor foi instalado em frente à lâmpada e ligado a um amplificador de tensão.
+Uma lâmpada de tungstênio com 20W de potência nominal foi ligada a uma fonte regulável. 
+Um fotosensor foi instalado em frente à lâmpada e ligado a um amplificador de tensão.
 
 Foram aplicados diferentes tensões à lâmpada.
 Em cada etapa, eram medidas a corrente na lâmpada e a tensão de saída no fotosensor, já amplificada.
@@ -44,7 +63,8 @@ Assumiu-se que a luminância detectada seria proprocional à esta tensão de sa�
 a relação exata desta proporção.
 
 A resistência da lâmpada pôde ser calculada para cada conjunto de dados através da lei de Ohm: $$ r=V/I $$, 
-onde $$r$$ é a resistência, $$V$$ a voltagem e $$I$$ a corrente aplicada à lâmpada. A potência dissipada pela lâmpada foi calculada através de $$ r=VI $$.
+onde $$r$$ é a resistência, $$V$$ a voltagem e $$I$$ a corrente aplicada à lâmpada. 
+A potência dissipada pela lâmpada foi calculada através de $$ r=VI $$.
 
 
 
