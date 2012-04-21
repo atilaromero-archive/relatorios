@@ -6,7 +6,7 @@ def main(path):
             v,i,l = [float(x) for x in line.split()]
             r=(i!=0 and v/i or 0)
             p=v*i
-            print v,i,l,r,p
+            print ' & '.join([str(x) for x in [v,i,l,r,p]])
 
 
 if __name__=="__main__":
