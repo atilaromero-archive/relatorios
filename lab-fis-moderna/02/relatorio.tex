@@ -8,12 +8,12 @@
 \usepackage[brazil]{babel}     % ifenização
 %\usepackage{t1enc}            % reconhecimento dos acentos inseridos com o teclado
 \usepackage[utf8]{inputenc}    %  reconhecimento dos caracteres com codificação UTF8, acentuação.
-\usepackage{graphicx}          % figuras em formato eps 
-%\usepackage[pdftex]{graphicx} % para produzir PDF diretamente
+%\usepackage{graphicx}          % figuras em formato eps 
+\usepackage[pdftex]{graphicx} % para produzir PDF diretamente
 %\usepackage{color}             % fontes soloridas
 %%% fim do cabecalho %%%
 
-\pagestyle{empty}
+%\pagestyle{empty}
 \title{Análise de dados medidos em um filamento de tungstênio}
 \author{Aluno: Átila Leites Romero \\ Matrícula: 144679 \\ IF-UFRGS}
 
@@ -199,7 +199,7 @@ $$\frac{\gamma}{4}=0,2963$$
   \caption{Regressão polinomial para valores até 1,1 volts.}
   \label{figiniciopeq}
   \centering
-    \includegraphics{iniciopeq.jpg}
+    \includegraphics[scale=0.75]{iniciopeq.jpg}
     %\rotatebox{-90}{\resizebox{8.0cm}{!}{\includegraphics{figura.jpg}}}
 \end{figure}
 
@@ -207,7 +207,7 @@ $$\frac{\gamma}{4}=0,2963$$
   \caption{Regressão polinomial calculada usando todas as medidas.}
   \label{figiniciogr}
   \centering
-    \includegraphics{iniciogr.jpg}
+    \includegraphics[scale=0.75]{iniciogr.jpg}
     %\rotatebox{-90}{\resizebox{8.0cm}{!}{\includegraphics{figura.eps}}}
 \end{figure}
 
@@ -224,7 +224,7 @@ mostrar que não é uma boa aproximação.
   \caption{Regressão linar para os logaritmos dos valores medidos a partir de 2 volts.}
   \label{figfimpeq}
   \centering
-    \includegraphics{fimpeq.jpg}
+    \includegraphics[scale=0.75]{fimpeq.jpg}
     %\rotatebox{-90}{\resizebox{8.0cm}{!}{\includegraphics{figura.eps}}}
 \end{figure}
 
@@ -239,7 +239,7 @@ na figura \ref{figfimgr} é mostrado como ficaria a interpolação de dados se c
   \caption{Regressão linar para os logaritmos dos valores medidos, usando toda a faixa de valores.}
   \label{figfimgr}
   \centering
-    \includegraphics{fimgr.jpg}
+    \includegraphics[scale=0.75]{fimgr.jpg}
     %\rotatebox{-90}{\resizebox{8.0cm}{!}{\includegraphics{figura.eps}}}
 \end{figure}
 
