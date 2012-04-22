@@ -1,8 +1,8 @@
-% ------------------------------------------------------------- 
+﻿% ------------------------------------------------------------- 
 % Arquivo :  relatório modelo                                        
 % ------------------------------------------------------------- 
 
-\documentclass[brazilian,12pt,a4paper,final]{article}
+\documentclass[brazilian,12pt,a4paper,twocolumn,final]{article}
 % tamanhos de fontes: 10pt, 11pt ou 12pt
 % opções de estilo (padrões): article, report, book, slide, letter (artigo, relatorio, livro, apresentação de slides, carta)
 \usepackage[brazil]{babel}     % ifenização
@@ -38,9 +38,9 @@ $$ R_{(T)}=\epsilon(T)\sigma T^4$$
 onde $\epsilon$ é um número menor que $1$ e representa a emissividade do corpo.
 
 Em outra experiência, foi verificado que as expressões
-$$R=R_0+R_1(T-T_0)+R_2(T-T_0)^2$$ 
+$$r=r_0+r_1(T-T_0)+r_2(T-T_0)^2$$ 
 e 
-$$R=R_0(\frac{T}{T_0})^\gamma$$
+$$r=r_0(\frac{T}{T_0})^\gamma$$
 fornecem uma boa aproximação para a
 relação entre resistência e temperatura do filamento de tungstênio.
 
@@ -52,7 +52,7 @@ $$P_D=D(T-T_0)$$
 
 Já a potência dissipada por radiação pode ser descrita pela lei de Stefan-Boltzmann, 
 logo 
-$$P=D(T-T_0)+S(T-T_0)$$
+$$P=D(T-T_0)+S(T-T_0)^4$$
 onde 
 $$S=\sigma A 4\pi\epsilon$$.
 
@@ -63,7 +63,7 @@ $$P\simeq D(T-T_0)$$
 e 
 $$(T-T_0)\simeq \frac{P}{D}$$
 o que leva a 
-$$R=R_0+R_1\frac{P}{D}+R_2(\frac{P}{D})^2$$
+$$r=r_0+r_1\frac{P}{D}+r_2(\frac{P}{D})^2$$
 
 Para altas temperaturas, a potência irradiada passa a prevalecer, 
 já que cresce muito mais rápido que a potência dissipada por difusão térmica.
@@ -73,15 +73,15 @@ e, como
 $$T>>T_0$$, 
 $$T^4\simeq \frac{P}{S}$$
 o que leva a 
-$$R=R_0\frac{1}{T_0^\gamma}(\frac{P}{S})^\frac{\gamma}{4}$$
+$$r=r_0\frac{1}{T_0^\gamma}(\frac{P}{S})^\frac{\gamma}{4}$$
 
 \section{Procedimento experimental}
 Uma lâmpada de tungstênio com 20W de potência nominal foi ligada a uma fonte regulável. 
-Um fotosensor foi instalado em frente à lâmpada e ligado a um amplificador de tensão.
+Um sensor fotoelétrico foi instalado em frente à lâmpada e ligado a um amplificador de tensão.
 
-Foram aplicados diferentes tensões à lâmpada.
-Em cada etapa, eram medidas a corrente na lâmpada e a tensão de saída no fotosensor, já amplificada.
-Assumiu-se que a luminância detectada seria proprocional à esta tensão de saída, mesmo sendo desconhecido o valor exato desta proporção.
+Foram aplicadas diferentes tensões à lâmpada.
+Em cada etapa, eram medidas a corrente na lâmpada e a tensão de saída no sensor fotoelétrico, já amplificada.
+Assumiu-se que a luminância detectada seria proprocional a esta tensão de saída, mesmo sendo desconhecido o valor exato desta proporção.
 
 \section{Análise dos dados}
 Para cada medida, 
@@ -89,32 +89,49 @@ a resistência da lâmpada pode ser calculada
 através da lei de Ohm: 
 $$ r=V/I$$ 
 onde $r$ é a resistência, $V$ a voltagem e $I$ a corrente aplicada à lâmpada. 
-A potência total dissipada pela lâmpada é calculada através da 
-lei de Joule $ P=VI $.
 
 Para voltagens baixas,
 como não há emissão luminosa detectável, 
 a potência dissipada é constituída predominantemente
-pela difusão térmica,
- e é esperado um comportamento linear entre a 
+pela difusão térmica.
+É esperado um comportamento linear entre a 
 resistência elétrica do tungstênio e a potência dissipada, descrito por
-$$R=R_0+R_1\frac{P}{D}+R_2(\frac{P}{D})^2$$
+$$r=r_0+r_1\frac{P}{D}+r_2(\frac{P}{D})^2$$
 
-Os valores para $R_0$, $R_1$ e $R_2$
+A potência dissipada por difusão térmica pela lâmpada é calculada através da 
+lei de Joule $ P=VI $.
+
+Os valores para $r_0$, $r_1$ e $r_2$
 podem ser calculados
-utilizando regressão linear.
+utilizando regressão polinomial.
 
 Para voltagens mais elevadas, 
 a potência irradiada deve prevalecer, e
-é esperado um crescimento exponencial da 
-potência dissipada em relação à resistência, descrito por
-$$R=R_0\frac{1}{T_0^\gamma}(\frac{P}{S})^\frac{\gamma}{4}$$
+é esperado um crescimento geométrico da 
+potência irradiada em relação à resistência, descrito por
+$$r=r_0\frac{1}{T_0^\gamma}(\frac{P}{S})^\frac{\gamma}{4}$$
 
-O valor para $\gamma$ pode ser calculado utilizando regressão exponencial. 
+Neste caso a potência dissipada é obtida a partir dos dados da luminosidade captada
+pelo sensor fotoelétrico.
+
+Rearranjando os termos para isolar as constantes, temos:
+$$r=r_0(\frac{1}{T_0S^\frac{1}{4}}P^\frac{1}{4})^\gamma$$
+
+E usando logarítimos:
+$$ln(r)=ln(r_0)\gamma[ln(\frac{1}{T_0S^\frac{1}{4}})+ln(P^\frac{1}{4})]$$
+$$ln(r)=ln(r_0)\gamma ln(\frac{1}{T_0S^\frac{1}{4}})+\frac{ln(r_0)\gamma}{4}ln(P)$$
+$$ln(r)=A+Bln(P)$$
+onde
+$$A=ln(r_0)\gamma ln(\frac{1}{T_0S^\frac{1}{4}}); B=\frac{ln(r_0)\gamma}{4}$$
+
+
+Os valores para $ln(r_0)\gamma ln(\frac{1}{T_0S^\frac{1}{4}})$
+e $\frac{ln(r_0)\gamma}{4}$ podem ser calculados utilizando regressão linear. 
 
 \section{Resultados}
 
-\begin{table}[h]
+\begin{table}[H]
+\centering
 \begin{tabular}{|r|r|r|r|r|} 
 \hline
 V(V)    &       I(A)    &       L       &       R(Ohm)  &       P(W)    \\
@@ -156,23 +173,73 @@ V(V)    &       I(A)    &       L       &       R(Ohm)  &       P(W)    \\
 13,04   &       1,76    &       6120    &       7,41    &       22,95   \\
  \hline
  \end{tabular}
- \caption{Titulo }
+ \caption{Primeiro conjunto de medidas.}
  \label{tabdados1}
 \end{table}
 
 No primeiro conjunto de dados, listado na tabela \ref{tabdados1}, 
 não houve detecção de radiação luminosa até a voltagem de 1,1 volts.
 Ou seja, até 1,1 volts, prevaleceu a difusão térmica.
-Os valores calculados por regressão linear foram:
-$$R_0=; R_1=; R_2=$$
+Os valores calculados por regressão polinomial foram:
+$$r_0=0,814842606; \frac{r_1}{D}=3,820952313; \frac{r_2}{D^2}=-1,882676093$$
 
 Na faixa de voltagens acima de 2 volts, foi notado um grande aumento da
 potência dissipada, correspondente à dissipação por irradiação.
 
-Utilizando regressão exponencial, foi calculado o valor para $\gamma$:
-$$\gamma=$$
+Os valores calculados por regressão linear foram:
+$$ln(r_0)\gamma ln(\frac{1}{T_0S^\frac{1}{4}}) = 0,296281006$$
+$$\frac{ln(r_0)\gamma}{4}=1,0814939775$$
 
 \section{Discussão}
+
+\begin{figure}[h]
+  \caption{Regressão polinomial para valores até 1,1 volts.}
+  \label{figiniciopeq}
+  \centering
+    \includegraphics{iniciopeq.eps}
+    %\rotatebox{-90}{\resizebox{8.0cm}{!}{\includegraphics{figura.eps}}}
+\end{figure}
+
+\begin{figure}[h]
+  \caption{Regressão polinomial calculada usando todas as medidas.}
+  \label{figiniciogr}
+  \centering
+    \includegraphics{iniciogr.eps}
+    %\rotatebox{-90}{\resizebox{8.0cm}{!}{\includegraphics{figura.eps}}}
+\end{figure}
+
+Na figura \ref{figiniciopeq}, a regressão poninomial obtida utilizando 
+valores de até 1,1volts é exibida.
+Também é 
+mostrado como seria o resultado nesta faixa caso todo o conjunto de dados fosse utilizado.
+
+Na figura \ref{figiniciogr}, a regressão polinomial calculada usando o
+ conjunto de dados completo é mostrada para toda a faixa de valores medidos, para
+mostrar que não é uma boa aproximação.
+
+\begin{figure}[h]
+  \caption{Regressão linar para os logarítimos dos valores medidos a partir de 2 volts.}
+  \label{figfimpeq}
+  \centering
+    \includegraphics{fimpeq.eps}
+    %\rotatebox{-90}{\resizebox{8.0cm}{!}{\includegraphics{figura.eps}}}
+\end{figure}
+
+Na figura \ref{figfimpeq}, a regressão linear obtida utilizando 
+os valores medidos a partir de 2 volts é exibida.
+
+
+Para mostrar que a utilização de toda a faixa de valores não fornece uma boa aproximação,
+na figura \ref{figfimgr} é mostrado como ficaria a interpolação de dados se calculada desta forma.
+
+\begin{figure}[h]
+  \caption{Regressão linar para os logarítimos dos valores medidos, usando toda a faixa de valores.}
+  \label{figfimgr}
+  \centering
+    \includegraphics{fimgr.eps}
+    %\rotatebox{-90}{\resizebox{8.0cm}{!}{\includegraphics{figura.eps}}}
+\end{figure}
+
 
 \section{Conclusões}
 
