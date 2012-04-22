@@ -8,8 +8,8 @@
 \usepackage[brazil]{babel}     % ifenização
 %\usepackage{t1enc}            % reconhecimento dos acentos inseridos com o teclado
 \usepackage[utf8]{inputenc}    %  reconhecimento dos caracteres com codificação UTF8, acentuação.
-%\usepackage{graphicx}          % figuras em formato eps 
-\usepackage[pdftex]{graphicx} % para produzir PDF diretamente
+\usepackage{graphicx}          % figuras em formato eps 
+%\usepackage[pdftex]{graphicx} % para produzir PDF diretamente
 %\usepackage{color}             % fontes soloridas
 %%% fim do cabecalho %%%
 
@@ -199,15 +199,15 @@ $$\frac{\gamma}{4}=0,2963$$
   \caption{Regressão polinomial para valores até 1,1 volts.}
   \label{figiniciopeq}
   \centering
-    \includegraphics[scale=0.75]{iniciopeq.jpg}
-    %\rotatebox{-90}{\resizebox{8.0cm}{!}{\includegraphics{figura.jpg}}}
+    %\includegraphics[scale=0.75]{iniciopeq.jpg}
+    \resizebox{8.0cm}{!}{\includegraphics{iniciopeq.eps}}
 \end{figure}
 
 \begin{figure}[htbp!]
   \caption{Regressão polinomial calculada usando todas as medidas.}
   \label{figiniciogr}
   \centering
-    \includegraphics[scale=0.75]{iniciogr.jpg}
+    \includegraphics[scale=0.75]{iniciogr.eps}
     %\rotatebox{-90}{\resizebox{8.0cm}{!}{\includegraphics{figura.eps}}}
 \end{figure}
 
