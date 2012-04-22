@@ -34,8 +34,8 @@ e $T$ é a temperatura do corpo negro.
 
 Mas a emissividade de corpos reais é menor que a emissividade de um corpo negro ideal.
 Por isso, para corpos reais, a equação é reescrita como 
-$$ R_{(T)}=\epsilon(T)\sigma T^4$$
-onde $\epsilon$ é um número menor que $1$ e representa a emissividade do corpo.
+$$ R_{(T)}=\Epsilon(T)\sigma T^4$$
+onde $\Epsilon$ é um número menor que $1$ e representa a emissividade do corpo.
 
 Em outra experiência, foi verificado que as expressões
 $$r=r_0+r_1(T-T_0)+r_2(T-T_0)^2$$ 
@@ -52,7 +52,7 @@ $$P_D=D(T-T_0)$$
 
 Já a potência dissipada por radiação pode ser descrita pela lei de Stefan-Boltzmann, 
 logo 
-$$P=D(T-T_0)+S(T-T_0)^4$$
+$$P=P_D+P_S=D(T-T_0)+S(T-T_0)^4$$
 onde 
 $$S=\sigma A 4\pi\epsilon$$.
 
@@ -94,14 +94,14 @@ Para voltagens baixas,
 como não há emissão luminosa detectável, 
 a potência dissipada é constituída predominantemente
 pela difusão térmica.
-É esperado um comportamento linear entre a 
+É esperado um comportamento polinomial entre a 
 resistência elétrica do tungstênio e a potência dissipada, descrito por
 $$r=r_0+r_1\frac{P}{D}+r_2(\frac{P}{D})^2$$
 
 A potência dissipada por difusão térmica pela lâmpada é calculada através da 
 lei de Joule $ P=VI $.
 
-Os valores para $r_0$, $r_1$ e $r_2$
+Os valores para $r_0$, $\frac{r_1}{D}$ e $\frac{r_2}{D^2}$
 podem ser calculados
 utilizando regressão polinomial.
 
@@ -115,22 +115,25 @@ Neste caso a potência dissipada é obtida a partir dos dados da luminosidade ca
 pelo sensor fotoelétrico.
 
 Rearranjando os termos para isolar as constantes, temos:
-$$r=r_0(\frac{1}{T_0S^\frac{1}{4}}P^\frac{1}{4})^\gamma$$
+$$\frac{r}{r_0}=(\frac{1}{T_0S^\frac{1}{4}}P^\frac{1}{4})^\gamma$$
 
 E usando logaritmos:
-$$ln(r)=ln(r_0)\gamma[ln(\frac{1}{T_0S^\frac{1}{4}})+ln(P^\frac{1}{4})]$$
-$$ln(r)=ln(r_0)\gamma ln(\frac{1}{T_0S^\frac{1}{4}})+\frac{ln(r_0)\gamma}{4}ln(P)$$
+$$ln(\frac{r}{r_0})=\gamma[ln(\frac{1}{T_0S^\frac{1}{4}})+ln(P^\frac{1}{4})]$$
+$$ln(\frac{r}{r_0})=\gamma ln(\frac{1}{T_0S^\frac{1}{4}})+\frac{ln(r_0)\gamma}{4}ln(P)$$
 $$ln(r)=A+Bln(P)$$
 onde
-$$A=ln(r_0)\gamma ln(\frac{1}{T_0S^\frac{1}{4}}); B=\frac{ln(r_0)\gamma}{4}$$
+$$A=\gamma ln(\frac{1}{T_0S^\frac{1}{4}}); B=\frac{\gamma}{4}$$
 
 
-Os valores para $ln(r_0)\gamma ln(\frac{1}{T_0S^\frac{1}{4}})$
-e $\frac{ln(r_0)\gamma}{4}$ podem ser calculados utilizando regressão linear. 
+Os valores para $\gamma ln(\frac{1}{T_0S^\frac{1}{4}})$
+e $\frac{\gamma}{4}$ podem ser calculados utilizando regressão linear.
+
+Para o valor de $r_0$ da relação $\frac{r}{r_0}$, utiliza-se o valor obtido 
+nas baixas voltagens.
 
 \section{Resultados}
 
-\begin{table}[H]
+\begin{table}[htbp!]
 \centering
 \begin{tabular}{|r|r|r|r|r|} 
 \hline
@@ -181,18 +184,18 @@ No primeiro conjunto de dados, listado na tabela \ref{tabdados1},
 não houve detecção de radiação luminosa até a voltagem de 1,1 volts.
 Ou seja, até 1,1 volts, prevaleceu a difusão térmica.
 Os valores calculados por regressão polinomial foram:
-$$r_0=0,814842606; \frac{r_1}{D}=3,820952313; \frac{r_2}{D^2}=-1,882676093$$
+$$r_0=0,8148; \frac{r_1}{D}=3,820; \frac{r_2}{D^2}=-1,882$$
 
 Na faixa de voltagens acima de 2 volts, foi notado um grande aumento da
 potência dissipada, correspondente à dissipação por irradiação.
 
 Os valores calculados por regressão linear foram:
-$$ln(r_0)\gamma ln(\frac{1}{T_0S^\frac{1}{4}}) = 0,296281006$$
-$$\frac{ln(r_0)\gamma}{4}=1,0814939775$$
+$$\gamma ln(\frac{1}{T_0S^\frac{1}{4}}) = 1.286$$
+$$\frac{\gamma}{4}=0,2963$$
 
 \section{Discussão}
 
-\begin{figure}[h]
+\begin{figure}[htbp!]
   \caption{Regressão polinomial para valores até 1,1 volts.}
   \label{figiniciopeq}
   \centering
@@ -200,7 +203,7 @@ $$\frac{ln(r_0)\gamma}{4}=1,0814939775$$
     %\rotatebox{-90}{\resizebox{8.0cm}{!}{\includegraphics{figura.eps}}}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[htbp!]
   \caption{Regressão polinomial calculada usando todas as medidas.}
   \label{figiniciogr}
   \centering
@@ -217,7 +220,7 @@ Na figura \ref{figiniciogr}, a regressão polinomial calculada usando o
  conjunto de dados completo é mostrada para toda a faixa de valores medidos, para
 mostrar que não é uma boa aproximação.
 
-\begin{figure}[h]
+\begin{figure}[htbp!]
   \caption{Regressão linar para os logaritmos dos valores medidos a partir de 2 volts.}
   \label{figfimpeq}
   \centering
@@ -232,7 +235,7 @@ os valores medidos a partir de 2 volts é exibida.
 Para mostrar que a utilização de toda a faixa de valores não fornece uma boa aproximação,
 na figura \ref{figfimgr} é mostrado como ficaria a interpolação de dados se calculada desta forma.
 
-\begin{figure}[h]
+\begin{figure}[htbp!]
   \caption{Regressão linar para os logaritmos dos valores medidos, usando toda a faixa de valores.}
   \label{figfimgr}
   \centering
@@ -240,12 +243,39 @@ na figura \ref{figfimgr} é mostrado como ficaria a interpolação de dados se c
     %\rotatebox{-90}{\resizebox{8.0cm}{!}{\includegraphics{figura.eps}}}
 \end{figure}
 
+Isolando $\gamma$ temos que:
+$$\gamma=4x0,2963=1.185$$
+que é próximo ao valor $1.221$ obtido em experiência prévia,
+mas o material lá utilizado pode ter características diferente,
+como densidade e impurezas, que podem explicar parte desta diferença.
+
+É possível que um número maior de medidas em baixas voltagens fornecesse
+um valor mais preciso para $r_0$, o que aumentaria a precisão do $\gamma$
+calculado.
+
+Mesmo assim, é possível observar que a potência irradiada de fato aumentou
+com a quarta potência da temperatura, se considerarmos válida a aproximação
+$T^4\simeq \frac{P}{S}$, o que está de acordo com a lei de Stefan-Boltzmann.
 
 \section{Conclusões}
+Neste experimento medimos a potência dissipada por um filamento de tungstênio
+sujeito a diferentes voltagens. Foi confirmado que a difusão térmica predomina
+em baixas temperaturas e que a irradiação predomina em temperaturas maiores.
+
+O modelo de dissipação de energia para baixas temperaturas, 
+assume que a relação entre potência dissipada e temperatura é linear
+e descreveu satisfatóriamente as medidas feitas em baixa voltagem.
+
+Para altas temperaturas, 
+o modelo que considera que 
+a energia dissipada é proporcional à quarta potência da temperatura 
+forneceu uma descrição mais adequada para as medidas obtidas.
 
 
-\begin{thebibliography}{99}
-\end{thebibliography}
+
+
+%\begin{thebibliography}{99}
+%\end{thebibliography}
 
 \end{document}
 
