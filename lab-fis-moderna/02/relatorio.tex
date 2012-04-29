@@ -53,9 +53,9 @@ $$P_D=D(T-T_0)$$
 
 Já a potência dissipada por radiação pode ser descrita pela lei de Stefan-Boltzmann, 
 logo 
-$$P=P_D+P_S=D(T-T_0)+S(T-T_0)^4$$
+$$P=P_D+P_S=D(T-T_0)+S(T^4-T_0^4)$$
 onde 
-$$S=\sigma A 4\pi\epsilon$$.
+$$S=\sigma A 4\pi\varepsilon$$.
 
 Como $\sigma$ é muito pequeno, 
 para baixas temperaturas a dissipação por condução e convecção prevalece e,
@@ -69,12 +69,23 @@ $$r=r_0+r_1\frac{P}{D}+r_2(\frac{P}{D})^2$$
 Para altas temperaturas, a potência irradiada passa a prevalecer, 
 já que cresce muito mais rápido que a potência dissipada por difusão térmica.
 Neste caso,  
-$$P\simeq S(T-T_0)$$ 
+$$P\simeq S(T^4-T_0^4)$$ 
 e, como 
-$$T>>T_0$$, 
+$$T^4>>T_0^4$$, 
 $$T^4\simeq \frac{P}{S}$$
 o que leva a 
 $$r=r_0\frac{1}{T_0^\gamma}(\frac{P}{S})^\frac{\gamma}{4}$$
+
+Espera-se ainda que os dados experimentais possam ser descritos pela Lei de Planck
+para radiação de corpo negro:
+\[
+R d\lambda=\frac{hc^2}{\lambda^5}\frac{1}{e^\frac{hc}{\lambda KT}-1} d\lambda
+\]
+Com a aproximação de Wien, $e^\frac{hc}{\lambda KT}-1$ é substituido 
+por $e^\frac{hc}{\lambda KT}$ :
+\[
+R d\lambda=\frac{hc^2}{\lambda^5}e^\frac{-hc}{\lambda KT} d\lambda
+\]
 
 \section{Procedimento experimental}
 Uma lâmpada de tungstênio com 20W de potência nominal foi ligada a uma fonte regulável. 
@@ -132,7 +143,14 @@ e $\frac{\gamma}{4}$ podem ser calculados utilizando regressão linear.
 Para o valor de $r_0$ da relação $\frac{r}{r_0}$, utiliza-se o valor obtido 
 nas baixas voltagens.
 
-\section{Resultados}
+Utilizando logaritmos com a aproximação de Wien, espera-se que 
+o gráfico de ln(L)xT produza uma reta com inclinação 
+$-\frac{hc}{\lambda KT}$:
+\[
+ln(L) =C-\frac{hc}{\lambda KT}
+\]
+
+\section{Resultados do primeiro conjunto de dados}
 
 \begin{table}[htbp]
 \centering
@@ -194,7 +212,7 @@ Os valores calculados por regressão linear foram:
 $$\gamma ln(\frac{1}{T_0S^\frac{1}{4}}) = 1.286$$
 $$\frac{\gamma}{4}=0,2963$$
 
-\section{Discussão}
+\section{Discussão do primeiro conjunto de dados}
 
 \begin{figure}[htbp!]
   \caption{Regressão polinomial para valores até 1,1 volts.}
@@ -256,6 +274,82 @@ como densidade e impurezas, que podem explicar parte desta diferença.
 um valor mais preciso para $r_0$, o que aumentaria a precisão do $\gamma$
 calculado.
 
+Outra fonte de erro foi a luz da sala, que estava ligada durante o 
+experimento, de modo que a movimentação das pessoas pode ter influenciado
+a quantidade de luz incidente no sensor, 
+alterando o resultado das medidas, sobretudo nas voltagens mais baixas.
+
+Mesmo com essas aproximações, 
+foi possível observar que a potência irradiada de fato aumentou
+com a quarta potência da temperatura, 
+o que está de acordo com a lei de Stefan-Boltzmann.
+
+\section{Resultados do segundo conjunto de dados}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|r|r|r|r|r|} 
+\hline
+V(V)    &       I(A)    &       L       &       R(Ohm)  &       P(W)    \\
+\hline
+ \hline
+ \end{tabular}
+ \caption{Primeiro conjunto de medidas.}
+ \label{tabdados2}
+\end{table}
+
+No segundo conjunto de dados, listado na tabela \ref{tabdados2}, 
+não houve detecção de radiação luminosa até a voltagem de xxxxxx volts.
+Ou seja, até xxxx volts, prevaleceu a difusão térmica.
+Os valores calculados por regressão polinomial foram:
+$$r_0=xxxxx; \frac{r_1}{D}=xxxxx; \frac{r_2}{D^2}=xxxxx$$
+
+Na faixa de voltagens acima de 2 volts, foi notado um grande aumento da
+potência dissipada, correspondente à dissipação por irradiação.
+
+Os valores calculados por regressão linear foram:
+$$\gamma ln(\frac{1}{T_0S^\frac{1}{4}}) = xxxxxx$$
+$$\frac{\gamma}{4}=xxxxxx$$
+
+\section{Discussão do segundo conjunto de dados}
+
+\begin{figure}[htbp!]
+  \caption{Regressão polinomial para valores até xxxx volts.}
+  \label{figiniciopeq2}
+  \centering
+    %\includegraphics[scale=0.75]{iniciopeq.jpg}
+    \resizebox{8.0cm}{!}{\includegraphics{iniciopeq2.eps}}
+\end{figure}
+
+Na figura \ref{figiniciopeq2}, a regressão poninomial obtida utilizando 
+valores de até xxxx volts é exibida.
+Também é mostrado como seria o resultado nesta faixa caso todo o 
+conjunto de dados fosse utilizado.
+
+\begin{figure}[htbp!]
+  \caption{Regressão linar para os logaritmos dos valores medidos a partir de xxxx volts.}
+  \label{figfimpeq2}
+  \centering
+    %\includegraphics{fimpeq.eps}
+    %\includegraphics[scale=0.75]{fimpeq.jpg}
+    \resizebox{8.0cm}{!}{\includegraphics{fimpeq2.eps}}
+\end{figure}
+
+Na figura \ref{figfimpeq2}, a regressão linear obtida utilizando 
+os valores medidos a partir de xxxxxx volts é exibida.
+
+Isolando $\gamma$ temos que:
+$$\gamma=4\times xxxx=xxxx$$
+que é próximo ao valor $1.221$ obtido em experiência prévia,
+mas o material lá utilizado pode ter características diferentes,
+como densidade e impurezas, que podem explicar parte desta diferença.
+
+xxxxxxxxx
+É possível que um número maior de medidas em baixas voltagens fornecesse
+um valor mais preciso para $r_0$, o que aumentaria a precisão do $\gamma$
+calculado.
+
+xxxxxxx
 Mesmo assim, é possível observar que a potência irradiada de fato aumentou
 com a quarta potência da temperatura, se considerarmos válida a aproximação
 $T^4\simeq \frac{P}{S}$, o que está de acordo com a lei de Stefan-Boltzmann.
