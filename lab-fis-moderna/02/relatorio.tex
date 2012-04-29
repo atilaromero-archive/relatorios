@@ -144,10 +144,19 @@ Para o valor de $r_0$ da relação $\frac{r}{r_0}$, utiliza-se o valor obtido
 nas baixas voltagens.
 
 Utilizando logaritmos com a aproximação de Wien, espera-se que 
-o gráfico de ln(L)xT produza uma reta com inclinação 
-$-\frac{hc}{\lambda KT}$:
+o gráfico de ln(L)x$\frac{1}{T}$ produza uma reta com inclinação 
+$-\frac{hc}{\lambda K}$:
 \[
 ln(L) =C-\frac{hc}{\lambda KT}
+\]
+
+Para calcular T, usa-se:
+$$T=T_0\frac{r}{r_0}^1/\gamma$$
+
+Utilizando a inclinação $\beta$ da reta, pode-se calcular a constante de Planck
+através de 
+\[
+h=-\beta \frac{\lambda K}{c}=-\beta 2.74705044 \times 10^{-19}
 \]
 
 \section{Resultados do primeiro conjunto de dados}
@@ -211,11 +220,12 @@ potência dissipada, correspondente à dissipação por irradiação.
 Os valores calculados por regressão linear foram:
 $$\gamma ln(\frac{1}{T_0S^\frac{1}{4}}) = 1.286$$
 $$\frac{\gamma}{4}=0,2963$$
+$$\beta = -11284,6$$
 
 \section{Discussão do primeiro conjunto de dados}
 
 \begin{figure}[htbp!]
-  \caption{Regressão polinomial para valores até 1,1 volts.}
+  \caption{Regressão polinomial para valores até 1,1 volts. Primeiro conjunto de medidas.}
   \label{figiniciopeq}
   \centering
     %\includegraphics[scale=0.75]{iniciopeq.jpg}
@@ -223,7 +233,7 @@ $$\frac{\gamma}{4}=0,2963$$
 \end{figure}
 
 \begin{figure}[htbp!]
-  \caption{Regressão polinomial calculada usando todas as medidas.}
+  \caption{Regressão polinomial calculada usando todas as medidas. Primeiro conjunto de medidas.}
   \label{figiniciogr}
   \centering
     %\includegraphics[scale=0.75]{iniciogr.eps}
@@ -240,7 +250,7 @@ Na figura \ref{figiniciogr}, a regressão polinomial calculada usando o
 mostrar que não é uma boa aproximação.
 
 \begin{figure}[htbp!]
-  \caption{Regressão linar para os logaritmos dos valores medidos a partir de 2 volts.}
+  \caption{Regressão linar para os logaritmos dos valores medidos a partir de 2 volts. Primeiro conjunto de medidas.}
   \label{figfimpeq}
   \centering
     %\includegraphics{fimpeq.eps}
@@ -256,7 +266,7 @@ Para mostrar que a utilização de toda a faixa de valores não fornece uma boa 
 na figura \ref{figfimgr} é mostrado como ficaria a interpolação de dados se calculada desta forma.
 
 \begin{figure}[htbp!]
-  \caption{Regressão linar para os logaritmos dos valores medidos, usando toda a faixa de valores.}
+  \caption{Regressão linar para os logaritmos dos valores medidos, usando toda a faixa de valores. Primeiro conjunto de medidas.}
   \label{figfimgr}
   \centering
     %\includegraphics{fimgr.eps}
@@ -269,6 +279,21 @@ $$\gamma=4\times 0,2963=1.185$$
 que é próximo ao valor $1.221$ obtido em experiência prévia,
 mas o material lá utilizado pode ter características diferentes,
 como densidade e impurezas, que podem explicar parte desta diferença.
+
+
+Na figura \ref{figh1}, foram comparados luminosidade e temperatura. A regressão linear obtida informa a inclinação $\beta$, usada para o cálculo de $h$.
+
+\begin{figure}[htbp!]
+  \caption{Regressão linear do logaritmo da luminosidade versus 1/T. Primeiro conjunto de medidas.}
+  \label{figh1}
+  \centering
+    %\includegraphics{fimgr.eps}
+    %\includegraphics[scale=0.75]{fimgr.jpg}
+    \resizebox{8.0cm}{!}{\includegraphics{h1.eps}}
+\end{figure}
+
+O valor calculado para $h$ foi $3.09993654 \times 10^{-15} eV.s$, que apresenta
+um erro de aproximadamente 25\% em relação ao valor atualmente conhecido.
 
 É possível que um número maior de medidas em baixas voltagens fornecesse
 um valor mais preciso para $r_0$, o que aumentaria a precisão do $\gamma$
@@ -286,48 +311,35 @@ o que está de acordo com a lei de Stefan-Boltzmann.
 
 \section{Resultados do segundo conjunto de dados}
 
-\begin{table}[htbp]
-\centering
-\begin{tabular}{|r|r|r|r|r|} 
-\hline
-V(V)    &       I(A)    &       L       &       R(Ohm)  &       P(W)    \\
-\hline
- \hline
- \end{tabular}
- \caption{Primeiro conjunto de medidas.}
- \label{tabdados2}
-\end{table}
-
-No segundo conjunto de dados, listado na tabela \ref{tabdados2}, 
-não houve detecção de radiação luminosa até a voltagem de xxxxxx volts.
-Ou seja, até xxxx volts, prevaleceu a difusão térmica.
+No segundo conjunto de dados, disponíveis no Moodle, 
+não houve detecção de radiação luminosa até a voltagem de 0,650 volts.
+Ou seja, até 0,650 volts, prevaleceu a difusão térmica.
 Os valores calculados por regressão polinomial foram:
-$$r_0=xxxxx; \frac{r_1}{D}=xxxxx; \frac{r_2}{D^2}=xxxxx$$
+$$r_0=0,6543; \frac{r_1}{D}=3,762; \frac{r_2}{D^2}=-1,361$$
 
-Na faixa de voltagens acima de 2 volts, foi notado um grande aumento da
+Na faixa de voltagens acima de 2,60 volts, foi notado um grande aumento da
 potência dissipada, correspondente à dissipação por irradiação.
 
 Os valores calculados por regressão linear foram:
-$$\gamma ln(\frac{1}{T_0S^\frac{1}{4}}) = xxxxxx$$
-$$\frac{\gamma}{4}=xxxxxx$$
+$$\gamma ln(\frac{1}{T_0S^\frac{1}{4}}) = 1,481$$
+$$\frac{\gamma}{4}=0,3002$$
 
 \section{Discussão do segundo conjunto de dados}
 
 \begin{figure}[htbp!]
-  \caption{Regressão polinomial para valores até xxxx volts.}
+  \caption{Regressão polinomial para valores até 0,650 volts.}
   \label{figiniciopeq2}
   \centering
     %\includegraphics[scale=0.75]{iniciopeq.jpg}
     \resizebox{8.0cm}{!}{\includegraphics{iniciopeq2.eps}}
 \end{figure}
 
-Na figura \ref{figiniciopeq2}, a regressão poninomial obtida utilizando 
-valores de até xxxx volts é exibida.
-Também é mostrado como seria o resultado nesta faixa caso todo o 
-conjunto de dados fosse utilizado.
+Na figura \ref{figiniciopeq2}, a regressão poninomial do segundo conjunto
+de dados, obtida utilizando 
+valores de até 0,650 volts é exibida.
 
 \begin{figure}[htbp!]
-  \caption{Regressão linar para os logaritmos dos valores medidos a partir de xxxx volts.}
+  \caption{Regressão linar para os logaritmos dos valores medidos a partir de 2,60 volts.}
   \label{figfimpeq2}
   \centering
     %\includegraphics{fimpeq.eps}
@@ -335,24 +347,27 @@ conjunto de dados fosse utilizado.
     \resizebox{8.0cm}{!}{\includegraphics{fimpeq2.eps}}
 \end{figure}
 
-Na figura \ref{figfimpeq2}, a regressão linear obtida utilizando 
-os valores medidos a partir de xxxxxx volts é exibida.
+Na figura \ref{figfimpeq2}, a regressão linear do segundo conjunto de dados, 
+obtida utilizando os valores medidos a partir de 2,60 volts é exibida.
 
 Isolando $\gamma$ temos que:
-$$\gamma=4\times xxxx=xxxx$$
-que é próximo ao valor $1.221$ obtido em experiência prévia,
-mas o material lá utilizado pode ter características diferentes,
-como densidade e impurezas, que podem explicar parte desta diferença.
+$$\gamma=4\times 0,3002=1,200$$
+que é mais próximo ao valor $1.221$ obtido em experiência prévia que 
+aquele obtido no primeiro conjunto de dados.
 
-xxxxxxxxx
-É possível que um número maior de medidas em baixas voltagens fornecesse
-um valor mais preciso para $r_0$, o que aumentaria a precisão do $\gamma$
-calculado.
+Na figura \ref{figh2}, foram comparados luminosidade e temperatura. A regressão linear obtida informa a inclinação $\beta$, usada para o cálculo de $h$.
 
-xxxxxxx
-Mesmo assim, é possível observar que a potência irradiada de fato aumentou
-com a quarta potência da temperatura, se considerarmos válida a aproximação
-$T^4\simeq \frac{P}{S}$, o que está de acordo com a lei de Stefan-Boltzmann.
+\begin{figure}[htbp!]
+  \caption{Regressão linear do logaritmo da luminosidade versus 1/T. Segundo conjunto de medidas.}
+  \label{figh2}
+  \centering
+    %\includegraphics{fimgr.eps}
+    %\includegraphics[scale=0.75]{fimgr.jpg}
+    \resizebox{8.0cm}{!}{\includegraphics{h2.eps}}
+\end{figure}
+
+O valor calculado para $h$ foi $4.55721933 \times 10^{-15} eV.s$, que apresenta
+um erro de aproximadamente 10\% em relação ao valor atualmente conhecido.
 
 \section{Conclusões}
 Neste experimento medimos a potência dissipada por um filamento de tungstênio
@@ -368,7 +383,15 @@ o modelo que considera que
 a energia dissipada é proporcional à quarta potência da temperatura 
 forneceu uma descrição mais adequada para as medidas obtidas.
 
+Os valores calculados para a constante de Planck utilizando os dois conjuntos
+de dados apresentaram aproximações razoáveis em relação aos valores atualmente
+conhecidos, principalemente se for considerado que a constante é um número
+muito pequeno, com uma ordem de grandeza -15.
 
+O segundo conjunto de medidas apresentou resultados melhores do que o 
+primeiro, por conter mais pontos na faixa de baixas voltagens e por 
+apresentar uma precisão maior, que pode ser notada pela menor variação
+de luminosidade nesta mesma faixa.
 
 
 %\begin{thebibliography}{99}
