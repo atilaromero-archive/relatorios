@@ -149,7 +149,7 @@ $$T=T_0(\frac{r}{r_0})^{1/\gamma}$$
 Utilizando a inclinação $\beta$ da reta, pode-se calcular a constante de Planck
 através de 
 \[
-h=-\beta \frac{\lambda K}{c}=-\beta \dot 2.74705044 \times 10^{-19}
+h=-\beta \frac{\lambda K}{c}=-\beta \times 2.74705044 \times 10^{-19}
 \]
 
 \section{Resultados do primeiro conjunto de dados}
@@ -217,6 +217,11 @@ $$\beta = -11284,6$$
 
 \section{Discussão do primeiro conjunto de dados}
 
+Na figura \ref{figiniciopeq}, a regressão poninomial obtida utilizando 
+valores até 1,1 volts é exibida.
+Também é 
+mostrado como seria o resultado nesta faixa caso todo o conjunto de dados fosse utilizado.
+
 \begin{figure}[htbp!]
   \caption{Regressão polinomial para valores até 1,1 volts. Primeiro conjunto de medidas.}
   \label{figiniciopeq}
@@ -224,6 +229,10 @@ $$\beta = -11284,6$$
     %\includegraphics[scale=0.75]{iniciopeq.jpg}
     \resizebox{8.0cm}{!}{\includegraphics{iniciopeq.eps}}
 \end{figure}
+
+Na figura \ref{figiniciogr}, a regressão polinomial calculada usando o
+ conjunto de dados completo é mostrada para toda a faixa de valores medidos, para
+mostrar que não é uma boa aproximação.
 
 \begin{figure}[htbp!]
   \caption{Regressão polinomial calculada usando todas as medidas. Primeiro conjunto de medidas.}
@@ -233,14 +242,8 @@ $$\beta = -11284,6$$
     \resizebox{8.0cm}{!}{\includegraphics{iniciogr.eps}}
 \end{figure}
 
-Na figura \ref{figiniciopeq}, a regressão poninomial obtida utilizando 
-valores até 1,1 volts é exibida.
-Também é 
-mostrado como seria o resultado nesta faixa caso todo o conjunto de dados fosse utilizado.
-
-Na figura \ref{figiniciogr}, a regressão polinomial calculada usando o
- conjunto de dados completo é mostrada para toda a faixa de valores medidos, para
-mostrar que não é uma boa aproximação.
+Na figura \ref{figfimpeq}, a regressão linear obtida utilizando 
+os valores medidos a partir de 2 volts é exibida.
 
 \begin{figure}[htbp!]
   \caption{Regressão linar para os logaritmos dos valores medidos a partir de 2 volts. Primeiro conjunto de medidas.}
@@ -250,10 +253,6 @@ mostrar que não é uma boa aproximação.
     %\includegraphics[scale=0.75]{fimpeq.jpg}
     \resizebox{8.0cm}{!}{\includegraphics{fimpeq.eps}}
 \end{figure}
-
-Na figura \ref{figfimpeq}, a regressão linear obtida utilizando 
-os valores medidos a partir de 2 volts é exibida.
-
 
 Para mostrar que a utilização de toda a faixa de valores não fornece uma boa aproximação,
 na figura \ref{figfimgr} é mostrado como ficaria a interpolação de dados se calculada desta forma.
@@ -274,6 +273,8 @@ mas o material lá utilizado pode ter características diferentes,
 como densidade e impurezas, que podem explicar parte desta diferença.
 
 
+Na figura \ref{fighum}, foram comparados luminosidade e temperatura. A regressão linear obtida informa a inclinação $\beta$, usada para o cálculo de $h$.
+
 \begin{figure}[htbp!]
   \caption{Regressão linear do logaritmo da luminosidade versus 1/T. Primeiro conjunto de medidas.}
   \label{fighum}
@@ -282,8 +283,6 @@ como densidade e impurezas, que podem explicar parte desta diferença.
     %\includegraphics[scale=0.75]{fimgr.jpg}
     \resizebox{8.0cm}{!}{\includegraphics{h1.eps}}
 \end{figure}
-
-Na figura \ref{fighum}, foram comparados luminosidade e temperatura. A regressão linear obtida informa a inclinação $\beta$, usada para o cálculo de $h$.
 
 O valor calculado para $h$ foi $3.09993654 \times 10^{-15} eV.s$, que apresenta
 um erro de aproximadamente 25\% em relação ao valor atualmente conhecido.
