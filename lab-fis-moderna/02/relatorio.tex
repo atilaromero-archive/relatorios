@@ -24,7 +24,7 @@
 \begin{abstract}
 Este trabalho apresenta uma verificação experimental da teoria de radiação de corpo negro, 
 utilizando uma montagem onde foi medida a radiação emitida por uma lâmpada de tungstênio 
-em função da tensão elétrica fornecida.
+em função da potência elétrica fornecida.
 \end{abstract}
 
 \section{Introdução}
@@ -42,12 +42,12 @@ Em outra experiência, foi verificado que as expressões
 $$r=r_0+r_1(T-T_0)+r_2(T-T_0)^2$$ 
 e 
 $$r=r_0(\frac{T}{T_0})^\gamma$$
-fornecem uma boa aproximação para a
+fornecem uma boa descrição para a
 relação entre resistência e temperatura do filamento de tungstênio.
 
-A potência total dissipada por efeito Joule pode ser descrita por 
+A potência total dissipada por efeito Joule pode ser calculada por 
 $$P=VI$$ 
-Assumindo que a energia dissipada por condução e convecção varie lineramente 
+Assumindo que a energia dissipada por condução e convecção varie linearmente 
 com a temperatura, pode-se afirmar que 
 $$P_D=D(T-T_0)$$
 
@@ -102,24 +102,17 @@ através da lei de Ohm:
 $$ r=V/I$$ 
 onde $r$ é a resistência, $V$ a voltagem e $I$ a corrente aplicada à lâmpada. 
 
-Para voltagens baixas,
-como não há emissão luminosa detectável, 
-a potência dissipada é constituída predominantemente
-pela difusão térmica.
-É esperado um comportamento polinomial entre a 
-resistência elétrica do tungstênio e a potência dissipada, descrito por
+Para voltagens baixas, o filamento estará em baixas temperaturas,
+e é esperado um comportamento polinomial entre a 
+resistência elétrica do tungstênio e a potência dissipada, descritas por
 $$r=r_0+r_1\frac{P}{D}+r_2(\frac{P}{D})^2$$
-
-A potência dissipada por difusão térmica pela lâmpada é calculada através da 
-lei de Joule $ P=VI $.
 
 Os valores para $r_0$, $\frac{r_1}{D}$ e $\frac{r_2}{D^2}$
 podem ser calculados
 utilizando regressão polinomial.
 
-Para voltagens mais elevadas, 
-a potência irradiada deve prevalecer, e
-é esperado um crescimento geométrico da 
+Para voltagens mais elevadas, o filamento apresentará temperaturas elevadas, 
+e é esperado um crescimento geométrico da 
 potência irradiada em relação à resistência, descrito por
 $$r=r_0\frac{1}{T_0^\gamma}(\frac{P}{S})^\frac{\gamma}{4}$$
 
@@ -131,7 +124,7 @@ $$\frac{r}{r_0}=(\frac{1}{T_0S^\frac{1}{4}}P^\frac{1}{4})^\gamma$$
 
 E usando logaritmos:
 $$ln(\frac{r}{r_0})=\gamma[ln(\frac{1}{T_0S^\frac{1}{4}})+ln(P^\frac{1}{4})]$$
-$$ln(\frac{r}{r_0})=\gamma ln(\frac{1}{T_0S^\frac{1}{4}})+\frac{ln(r_0)\gamma}{4}ln(P)$$
+$$ln(\frac{r}{r_0})=\gamma ln(\frac{1}{T_0S^\frac{1}{4}})+\frac{\gamma}{4}ln(P)$$
 $$ln(\frac{r}{r_0})=A+Bln(P)$$
 onde
 $$A=\gamma ln(\frac{1}{T_0S^\frac{1}{4}}); B=\frac{\gamma}{4}$$
@@ -151,12 +144,12 @@ ln(L) =C-\frac{hc}{\lambda KT}
 \]
 
 Para calcular T, usa-se:
-$$T=T_0\frac{r}{r_0}^1/\gamma$$
+$$T=T_0(\frac{r}{r_0})^{1/\gamma}$$
 
 Utilizando a inclinação $\beta$ da reta, pode-se calcular a constante de Planck
 através de 
 \[
-h=-\beta \frac{\lambda K}{c}=-\beta 2.74705044 \times 10^{-19}
+h=-\beta \frac{\lambda K}{c}=-\beta \dot 2.74705044 \times 10^{-19}
 \]
 
 \section{Resultados do primeiro conjunto de dados}
@@ -165,7 +158,7 @@ h=-\beta \frac{\lambda K}{c}=-\beta 2.74705044 \times 10^{-19}
 \centering
 \begin{tabular}{|r|r|r|r|r|} 
 \hline
-V(V)    &       I(A)    &       L       &       R(Ohm)  &       P(W)    \\
+V(V)    &       I(A)    &       L(u.a.)       &       R(Ohm)  &       P(W)    \\
 \hline
 0,11    &       0,12    &       5,7     &       0,92    &       0,01    \\
 0,21    &       0,22    &       5,8     &       0,95    &       0,05    \\
@@ -241,7 +234,7 @@ $$\beta = -11284,6$$
 \end{figure}
 
 Na figura \ref{figiniciopeq}, a regressão poninomial obtida utilizando 
-valores de até 1,1volts é exibida.
+valores até 1,1 volts é exibida.
 Também é 
 mostrado como seria o resultado nesta faixa caso todo o conjunto de dados fosse utilizado.
 
@@ -274,23 +267,23 @@ na figura \ref{figfimgr} é mostrado como ficaria a interpolação de dados se c
     \resizebox{8.0cm}{!}{\includegraphics{fimgr.eps}}
 \end{figure}
 
-Isolando $\gamma$ temos que:
+Calculando $\gamma$ temos que:
 $$\gamma=4\times 0,2963=1.185$$
 que é próximo ao valor $1.221$ obtido em experiência prévia,
 mas o material lá utilizado pode ter características diferentes,
 como densidade e impurezas, que podem explicar parte desta diferença.
 
 
-Na figura \ref{figh1}, foram comparados luminosidade e temperatura. A regressão linear obtida informa a inclinação $\beta$, usada para o cálculo de $h$.
-
 \begin{figure}[htbp!]
   \caption{Regressão linear do logaritmo da luminosidade versus 1/T. Primeiro conjunto de medidas.}
-  \label{figh1}
+  \label{fighum}
   \centering
     %\includegraphics{fimgr.eps}
     %\includegraphics[scale=0.75]{fimgr.jpg}
     \resizebox{8.0cm}{!}{\includegraphics{h1.eps}}
 \end{figure}
+
+Na figura \ref{fighum}, foram comparados luminosidade e temperatura. A regressão linear obtida informa a inclinação $\beta$, usada para o cálculo de $h$.
 
 O valor calculado para $h$ foi $3.09993654 \times 10^{-15} eV.s$, que apresenta
 um erro de aproximadamente 25\% em relação ao valor atualmente conhecido.
@@ -326,20 +319,23 @@ $$\frac{\gamma}{4}=0,3002$$
 
 \section{Discussão do segundo conjunto de dados}
 
+Na figura \ref{figiniciopeq2}, a regressão poninomial do segundo conjunto
+de dados, obtida utilizando 
+valores de até 0,650 volts é exibida.
+
 \begin{figure}[htbp!]
-  \caption{Regressão polinomial para valores até 0,650 volts.}
+  \caption{Regressão polinomial para valores até 0,650 volts. Segundo conjunto de medidas.}
   \label{figiniciopeq2}
   \centering
     %\includegraphics[scale=0.75]{iniciopeq.jpg}
     \resizebox{8.0cm}{!}{\includegraphics{iniciopeq2.eps}}
 \end{figure}
 
-Na figura \ref{figiniciopeq2}, a regressão poninomial do segundo conjunto
-de dados, obtida utilizando 
-valores de até 0,650 volts é exibida.
+Na figura \ref{figfimpeq2}, a regressão linear do segundo conjunto de dados, 
+obtida utilizando os valores medidos a partir de 2,60 volts é exibida.
 
 \begin{figure}[htbp!]
-  \caption{Regressão linar para os logaritmos dos valores medidos a partir de 2,60 volts.}
+  \caption{Regressão linar para os logaritmos dos valores medidos a partir de 2,60 volts. Segundo conjunto de medidas.}
   \label{figfimpeq2}
   \centering
     %\includegraphics{fimpeq.eps}
@@ -347,19 +343,16 @@ valores de até 0,650 volts é exibida.
     \resizebox{8.0cm}{!}{\includegraphics{fimpeq2.eps}}
 \end{figure}
 
-Na figura \ref{figfimpeq2}, a regressão linear do segundo conjunto de dados, 
-obtida utilizando os valores medidos a partir de 2,60 volts é exibida.
-
 Isolando $\gamma$ temos que:
 $$\gamma=4\times 0,3002=1,200$$
 que é mais próximo ao valor $1.221$ obtido em experiência prévia que 
 aquele obtido no primeiro conjunto de dados.
 
-Na figura \ref{figh2}, foram comparados luminosidade e temperatura. A regressão linear obtida informa a inclinação $\beta$, usada para o cálculo de $h$.
+Na figura \ref{fighhh}, foram comparados luminosidade e temperatura. A regressão linear obtida informa a inclinação $\beta$, usada para o cálculo de $h$.
 
 \begin{figure}[htbp!]
   \caption{Regressão linear do logaritmo da luminosidade versus 1/T. Segundo conjunto de medidas.}
-  \label{figh2}
+  \label{fighhh}
   \centering
     %\includegraphics{fimgr.eps}
     %\includegraphics[scale=0.75]{fimgr.jpg}
