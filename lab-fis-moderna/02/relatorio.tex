@@ -95,29 +95,36 @@ Foram aplicadas diferentes tensões à lâmpada.
 Em cada etapa, eram medidas a corrente na lâmpada e a tensão de saída no sensor fotoelétrico, já amplificada.
 Assumiu-se que a luminância detectada seria proprocional a esta tensão de saída, mesmo sendo desconhecido o valor exato desta proporção.
 
+Na segunda parte da experiência, foram realizadas medidas outros materiais, porém sem 
+a medida da luminância: lâmpada de 60W, filamento de tubo de Perrin, filamento de uma válvula 5Y3, um resistor de alta potência e um núcle de pilha Rayovac.
+
 \section{Análise dos dados}
 Para cada medida, 
-a resistência da lâmpada pode ser calculada 
+a resistência do material pode ser calculada 
 através da lei de Ohm: 
 $$ r=V/I$$ 
-onde $r$ é a resistência, $V$ a voltagem e $I$ a corrente aplicada à lâmpada. 
+onde $r$ é a resistência, $V$ a voltagem e $I$ a corrente aplicada ao material. 
 
-Para voltagens baixas, o filamento estará em baixas temperaturas,
+Para voltagens baixas, o material estará em baixas temperaturas,
 e é esperado um comportamento polinomial entre a 
-resistência elétrica do tungstênio e a potência dissipada, descritas por
+resistência elétrica e a potência dissipada, descritas por
 $$r=r_0+r_1\frac{P}{D}+r_2(\frac{P}{D})^2$$
 
 Os valores para $r_0$, $\frac{r_1}{D}$ e $\frac{r_2}{D^2}$
 podem ser calculados
 utilizando regressão polinomial.
 
-Para voltagens mais elevadas, o filamento apresentará temperaturas elevadas, 
-e é esperado um crescimento geométrico da 
+Para voltagens mais elevadas, se o filamento começar a irradiar, 
+será esperado um crescimento geométrico da 
 potência irradiada em relação à resistência, descrito por
 $$r=r_0\frac{1}{T_0^\gamma}(\frac{P}{S})^\frac{\gamma}{4}$$
 
-Neste caso a potência dissipada é obtida a partir dos dados da luminosidade captada
-pelo sensor fotoelétrico.
+Neste caso a potência dissipada pode ser obtida a partir dos dados da luminosidade captada
+pelo sensor fotoelétrico, no caso da lâmpada de 20W.
+
+Para os outros materiais, que não tiveram a luminosidade medida, utiliza-se a potência fornecida, mas com o cuidado de
+desconsiderar a parte dos dados onde a irradiação não predomina.
+Para os materiais que não apresentarem irradiação predominante, não é calculado o $\gamma$.
 
 Rearranjando os termos para isolar as constantes, temos:
 $$\frac{r}{r_0}=(\frac{1}{T_0S^\frac{1}{4}}P^\frac{1}{4})^\gamma$$
@@ -146,62 +153,20 @@ ln(L) =C-\frac{hc}{\lambda KT}
 Para calcular T, usa-se:
 $$T=T_0(\frac{r}{r_0})^{1/\gamma}$$
 
+Pode-se corrigir o cálculo da temperatura considerando a dilatação do material utilizando:
+$$T_{corrigida}=T_0(\frac{r}{r_0})^{1/\gamma}(\frac{1+2\alpha(T_{ini}-T_0)}{1+\alpha(T_{ini}-T_0)})^{1/\gamma}$$
+
+No entanto o erro introduzido por não utilizar esta correção é pequeno, em torno de 1\%.
+
 Utilizando a inclinação $\beta$ da reta, pode-se calcular a constante de Planck
 através de 
 \[
 h=-\beta \frac{\lambda K}{c}=-\beta \times 2.74705044 \times 10^{-19}
 \]
 
-\section{Resultados do primeiro conjunto de dados}
+\section{Lâmpada de 20W - primeiro conjunto de medidas}
 
-\begin{table}[htbp]
-\centering
-\begin{tabular}{|r|r|r|r|r|} 
-\hline
-V(V)    &       I(A)    &       L(u.a.)       &       R(Ohm)  &       P(W)    \\
-\hline
-0,11    &       0,12    &       5,7     &       0,92    &       0,01    \\
-0,21    &       0,22    &       5,8     &       0,95    &       0,05    \\
-0,30    &       0,27    &       5,9     &       1,11    &       0,08    \\
-0,41    &       0,33    &       5,6     &       1,24    &       0,14    \\
-0,50    &       0,35    &       6,0     &       1,43    &       0,18    \\
-0,61    &       0,38    &       5,5     &       1,61    &       0,23    \\
-0,70    &       0,40    &       6,0     &       1,75    &       0,28    \\
-0,80    &       0,42    &       6,1     &       1,90    &       0,34    \\
-0,90    &       0,44    &       5,1     &       2,05    &       0,40    \\
-1,00    &       0,46    &       6,0     &       2,17    &       0,46    \\
-1,10    &       0,48    &       6,0     &       2,29    &       0,53    \\
-1,20    &       0,50    &       6,6     &       2,40    &       0,60    \\
-1,29    &       0,52    &       6,9     &       2,48    &       0,67    \\
-1,41    &       0,54    &       7,6     &       2,61    &       0,76    \\
-1,50    &       0,55    &       8,7     &       2,73    &       0,83    \\
-1,60    &       0,57    &       9,9     &       2,81    &       0,91    \\
-1,68    &       0,59    &       11,4    &       2,85    &       0,99    \\
-1,79    &       0,60    &       13,5    &       2,98    &       1,07    \\
-1,88    &       0,62    &       15,7    &       3,03    &       1,17    \\
-2,01    &       0,64    &       19,4    &       3,14    &       1,29    \\
-2,53    &       0,72    &       44,7    &       3,51    &       1,82    \\
-2,99    &       0,79    &       84,8    &       3,78    &       2,36    \\
-3,46    &       0,85    &       146,2   &       4,07    &       2,94    \\
-4,01    &       0,92    &       246,5   &       4,36    &       3,69    \\
-4,55    &       0,98    &       370,8   &       4,64    &       4,46    \\
-5,00    &       1,04    &       504     &       4,81    &       5,20    \\
-5,53    &       1,09    &       689     &       5,07    &       6,03    \\
-6,05    &       1,15    &       895     &       5,26    &       6,96    \\
-7,02    &       1,25    &       1373    &       5,62    &       8,78    \\
-8,01    &       1,34    &       1956    &       5,98    &       10,73   \\
-9,00    &       1,43    &       2613    &       6,29    &       12,87   \\
-10,05   &       1,52    &       3428    &       6,61    &       15,28   \\
-11,02   &       1,60    &       4230    &       6,89    &       17,63   \\
-12,08   &       1,69    &       5200    &       7,15    &       20,42   \\
-13,04   &       1,76    &       6120    &       7,41    &       22,95   \\
- \hline
- \end{tabular}
- \caption{Primeiro conjunto de medidas.}
- \label{tabdados1}
-\end{table}
-
-No primeiro conjunto de dados, listado na tabela \ref{tabdados1}, 
+No primeiro conjunto de dados 
 não houve detecção de radiação luminosa até a voltagem de 1,1 volts.
 Ou seja, até 1,1 volts, prevaleceu a difusão térmica.
 Os valores calculados por regressão polinomial foram:
@@ -214,8 +179,6 @@ Os valores calculados por regressão linear foram:
 $$\gamma ln(\frac{1}{T_0S^\frac{1}{4}}) = 1.286$$
 $$\frac{\gamma}{4}=0,2963$$
 $$\beta = -11284,6$$
-
-\section{Discussão do primeiro conjunto de dados}
 
 Na figura \ref{figiniciopeq}, a regressão poninomial obtida utilizando 
 valores até 1,1 volts é exibida.
@@ -230,18 +193,6 @@ mostrado como seria o resultado nesta faixa caso todo o conjunto de dados fosse 
     \resizebox{8.0cm}{!}{\includegraphics{iniciopeq.eps}}
 \end{figure}
 
-Na figura \ref{figiniciogr}, a regressão polinomial calculada usando o
- conjunto de dados completo é mostrada para toda a faixa de valores medidos, para
-mostrar que não é uma boa aproximação.
-
-\begin{figure}[htbp!]
-  \caption{Regressão polinomial calculada usando todas as medidas. Primeiro conjunto de medidas.}
-  \label{figiniciogr}
-  \centering
-    %\includegraphics[scale=0.75]{iniciogr.eps}
-    \resizebox{8.0cm}{!}{\includegraphics{iniciogr.eps}}
-\end{figure}
-
 Na figura \ref{figfimpeq}, a regressão linear obtida utilizando 
 os valores medidos a partir de 2 volts é exibida.
 
@@ -254,18 +205,6 @@ os valores medidos a partir de 2 volts é exibida.
     \resizebox{8.0cm}{!}{\includegraphics{fimpeq.eps}}
 \end{figure}
 
-Para mostrar que a utilização de toda a faixa de valores não fornece uma boa aproximação,
-na figura \ref{figfimgr} é mostrado como ficaria a interpolação de dados se calculada desta forma.
-
-\begin{figure}[htbp!]
-  \caption{Regressão linar para os logaritmos dos valores medidos, usando toda a faixa de valores. Primeiro conjunto de medidas.}
-  \label{figfimgr}
-  \centering
-    %\includegraphics{fimgr.eps}
-    %\includegraphics[scale=0.75]{fimgr.jpg}
-    \resizebox{8.0cm}{!}{\includegraphics{fimgr.eps}}
-\end{figure}
-
 Calculando $\gamma$ temos que:
 $$\gamma=4\times 0,2963=1.185$$
 que é próximo ao valor $1.221$ obtido em experiência prévia,
@@ -273,7 +212,8 @@ mas o material lá utilizado pode ter características diferentes,
 como densidade e impurezas, que podem explicar parte desta diferença.
 
 
-Na figura \ref{fighum}, foram comparados luminosidade e temperatura. A regressão linear obtida informa a inclinação $\beta$, usada para o cálculo de $h$.
+Na figura \ref{fighum}, foram comparados luminosidade e temperatura.
+A regressão linear obtida informa a inclinação $\beta$, usada para o cálculo de $h$.
 
 \begin{figure}[htbp!]
   \caption{Regressão linear do logaritmo da luminosidade versus 1/T. Primeiro conjunto de medidas.}
@@ -301,9 +241,9 @@ foi possível observar que a potência irradiada de fato aumentou
 com a quarta potência da temperatura, 
 o que está de acordo com a lei de Stefan-Boltzmann.
 
-\section{Resultados do segundo conjunto de dados}
+\section{Lâmpada de 20W - segundo conjunto de medidas}
 
-No segundo conjunto de dados, disponíveis no Moodle, 
+No segundo conjunto de dados, 
 não houve detecção de radiação luminosa até a voltagem de 0,650 volts.
 Ou seja, até 0,650 volts, prevaleceu a difusão térmica.
 Os valores calculados por regressão polinomial foram:
@@ -315,8 +255,6 @@ potência dissipada, correspondente à dissipação por irradiação.
 Os valores calculados por regressão linear foram:
 $$\gamma ln(\frac{1}{T_0S^\frac{1}{4}}) = 1,481$$
 $$\frac{\gamma}{4}=0,3002$$
-
-\section{Discussão do segundo conjunto de dados}
 
 Na figura \ref{figiniciopeq2}, a regressão poninomial do segundo conjunto
 de dados, obtida utilizando 
@@ -361,6 +299,80 @@ Na figura \ref{fighhh}, foram comparados luminosidade e temperatura. A regressã
 O valor calculado para $h$ foi $4.55721933 \times 10^{-15} eV.s$, que apresenta
 um erro de aproximadamente 10\% em relação ao valor atualmente conhecido.
 
+\section{Segunda parte - outros materiais}
+
+Os dados medidos e os calculados na segunda parte da experiência podem ser
+visualizados no gráfico \ref{rxptodos}. Algums materiais estão exibidos também
+no gráfico \ref{rxpsel}, para melhor visualização.
+
+\begin{figure}[htbp!]
+  \caption{RxP - Dados medidos para diversos materiais.}
+  \label{rxptodos}
+  \centering
+    %\includegraphics{fimgr.eps}
+    %\includegraphics[scale=0.75]{fimgr.jpg}
+    \resizebox{8.0cm}{!}{\includegraphics{rxptodos.eps}}
+\end{figure}
+
+\begin{figure}[htbp!]
+  \caption{RxP - Dados medidos para diversos materiais.}
+  \label{rxpsel}
+  \centering
+    %\includegraphics{fimgr.eps}
+    %\includegraphics[scale=0.75]{fimgr.jpg}
+    \resizebox{8.0cm}{!}{\includegraphics{rxpsel.eps}}
+\end{figure}
+
+Os valores obtidos para $r_0$ foram:
+
+lâmpada de 60W: 21,88 Ohms
+
+tubo de Perrin: 0,59 Ohms
+
+válvula 5Y3: 0,55 Ohms
+
+resistor de alta potência: 28,71 Ohms
+
+núcleo de pilha - grafite: 0,19 Ohms
+
+Os valores obtidos para $\gamma$ foram:
+
+lâmpada de 60W: 1,32
+
+tubo de Perrin: 1,27
+
+válvula 5Y3: 0,76
+
+A lâmpada de 60W e 
+o tubo de Perrin parecem ser de tungstênio.
+A válvula 5Y3 parece não ser predominantemente de tungstênio, ou a dissipação por
+difusão térmica ainda era considerável.
+A diferença pode ser observada no gráfico \ref{gamma}, pela inclinação das retas.
+
+\begin{figure}[htbp!]
+  \caption{ln(R/R0)xln(P) - Uso da inclinação das retas para o cálculo de gama.}
+  \label{gamma}
+  \centering
+    %\includegraphics{fimgr.eps}
+    %\includegraphics[scale=0.75]{fimgr.jpg}
+    \resizebox{8.0cm}{!}{\includegraphics{gamma.eps}}
+\end{figure}
+
+O resistor de alta potência e o núcleo de pilha não apresentaram 
+predominância de irradiação e, portanto, não foi possível calcular o $\gamma$ 
+para estes materiais.
+
+Comparando $P$ e $T^4$ no gráfico \ref{t4}, pode-se notar que para a lâmpada de 60W e para o filamento do tubo de Perrin, existe uma correspondência linear entre $P$ e $T^4$, o que está de acordo com a lei de Stefan-Boltzmann. Já para a válvula, nota-se que a dissipação ainda é de fato significativa, já que não produziu uma reta. Este fato deve ter alterado o valor de gama para este material e, portanto dificulta que seja definida uma conclusão categórica para sua composição.
+
+\begin{figure}[htbp!]
+  \caption{$T^4$x$P$ - Confirmação da lei de Stefan-Boltzmann.}
+  \label{t4}
+  \centering
+    %\includegraphics{fimgr.eps}
+    %\includegraphics[scale=0.75]{fimgr.jpg}
+    \resizebox{8.0cm}{!}{\includegraphics{t4.eps}}
+\end{figure}
+
 \section{Conclusões}
 Neste experimento medimos a potência dissipada por um filamento de tungstênio
 sujeito a diferentes voltagens. Foi confirmado que a difusão térmica predomina
@@ -384,6 +396,9 @@ O segundo conjunto de medidas apresentou resultados melhores do que o
 primeiro, por conter mais pontos na faixa de baixas voltagens e por 
 apresentar uma precisão maior, que pode ser notada pela menor variação
 de luminosidade nesta mesma faixa.
+
+Na segunda parte da experiência foi interessante notar como a resistividade de 
+diferentes materiais se comporta em relação a potência fornecida.
 
 
 %\begin{thebibliography}{99}
